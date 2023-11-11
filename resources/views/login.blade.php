@@ -8,8 +8,8 @@
 
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
-        <link href="/ficus/dist/shadow.css" rel="stylesheet"> 
-        <link href="/ficus/dist/style.css" rel="stylesheet"> 
+        <link href="/laravel-ficus/dist/shadow.css" rel="stylesheet"> 
+        <link href="/laravel-ficus/dist/style.css" rel="stylesheet"> 
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     </head>
@@ -18,7 +18,7 @@
         <header>
             <nav class="navbar bg-color-middle">
                 <div class="container-fluid">
-                    <a href="#"><img src="/ficus/assets/ficus_brand" alt="Ficus brand" width="50px"></a>
+                    <a href="#"><img src="/laravel-ficus/assets/ficus_brand.png" alt="Ficus brand" width="50px"></a>
                 </div>
             </nav>
         </header>
@@ -48,7 +48,7 @@
 
                 <div class="login-box noselect center mt-5">
                     <div class="center-flex-x">
-                        <img class="" src="/ficus/assets/ficus_brand.png" alt="brand logo"width="50%">
+                        <img class="" src="/laravel-ficus/assets/ficus_brand.png" alt="brand logo"width="50%">
                     </div>
                 <div class="brand-text center-flex-x display-inline">
                     <h4 class="display-inline-block">Sign in to <span class="fw-bold txt-color-green-primary display-inline-block">Ficus</span></h4>
