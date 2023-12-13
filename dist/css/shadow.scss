@@ -70,11 +70,13 @@ hr{
 
 .shadow-card:hover{
     border: solid 1px #005B41;
+    background-color: #1C1C1C;
     cursor: pointer;
 }
 
 .shadow-card:active{
     border: solid 1px #198754;
+    background-color: #2B2B2B;
 }
 
 .shadow-card{
@@ -84,12 +86,15 @@ hr{
     min-width: 0;
     word-wrap: break-word;
     border: solid 1px transparent;
+    text-decoration: none;
 }
 
 .shadow-card-text{
     color: #F1F1F1;
     margin-top: 10px;
     margin-bottom: 10px;
+    
+    text-decoration: none !important;
 }
 
 .shadow-card-body{
@@ -125,30 +130,30 @@ hr{
     box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px #005B41;
 }
 
-.btn-shadow{
+.shadow-btn{
     color:#F1F1F1;
     background-color: #005B41;
     border-color: #005B41;
 }
 
-.btn-shadow:hover{
+.shadow-btn:hover{
     color: #F1F1F1;
     background-color: #157347;
     border-color: #157347;
 }
 
-.btn-shadow:focus{
+.shadow-btn:focus{
     box-shadow: rgb(60,153,110);
 }
 
-.btn-shadow:active{
+.shadow-btn:active{
     color: #F1F1F1;
     background-color: #146c43;
     border-color: #13653f;
     box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
 }
 
-.btn-shadow:disabled{
+.shadow-btn:disabled{
     background-color: #198754;
     border-color: #198754;
 }
@@ -161,6 +166,16 @@ hr{
     transition: background-color 5000s ease-in-out 0s;
 }
 
+.shadow-table >:not(caption)>*>*{
+    background-color: #2B2B2B;
+    border-color: #555;
+    color: #ddd;
+}
+
+.shadow-table >:not(caption)>tr:hover > td{
+    color: #198754;
+}
+
 .noselect {
     -webkit-touch-callout: none; /* iOS Safari */
       -webkit-user-select: none; /* Safari */
@@ -171,3 +186,36 @@ hr{
                                     supported by Chrome, Edge, Opera and Firefox */
 }
 
+.notextdecoration{
+    text-decoration: none;
+}
+
+.context-menu {
+  position: absolute;
+  text-align: center;
+  background: #2B2B2B;
+  border: 1px solid black;
+}
+  
+  .context-menu ul {
+    padding: 0px;
+    margin: 0px;
+    min-width: 200px;
+    list-style: none;
+  }
+  
+  .context-menu ul li {
+    padding-bottom: 7px;
+    padding-top: 7px;
+    border: 1px solid #444;
+  }
+  
+  .context-menu ul li a {
+    text-decoration: none;
+    color: #ddd;
+  }
+  
+  .context-menu ul li:hover {
+    background: #555;
+  }
+  

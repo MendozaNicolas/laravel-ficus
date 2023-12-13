@@ -9,5 +9,8 @@ class ViewController extends Controller
     function gotomain(){
         return redirect('main');
     }
-
+    
+    function users(){
+        return view('admin.users.index');
+    }
 }

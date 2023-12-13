@@ -8,8 +8,8 @@
 
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
-        <link href="/laravel-ficus/dist/shadow.css" rel="stylesheet"> 
-        <link href="/laravel-ficus/dist/style.css" rel="stylesheet"> 
+        <link href="/laravel-ficus/dist/css/shadow.css" rel="stylesheet"> 
+        <link href="/laravel-ficus/dist/css/style.css" rel="stylesheet"> 
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
@@ -23,7 +23,7 @@
                 
                     <div class="nav navbar-nav navbar-right hidden-xs">
                         @if(isset(Auth::user()->username))
-                        <a href="{{ url('/main/logout') }}" class="btn btn-shadow" role="button">Log Out  <i class="fa fa-sign-out"></i></a>
+                        <a href="{{ url('/main/logout') }}" class="btn shadow-btn" role="button">Log Out  <i class="fa fa-sign-out"></i></a>
                         @endif
                     </div>
                 </div>
@@ -32,7 +32,7 @@
         
         <main role="main">
             @if(!isset(Auth::user()->username))
-            <script>window.location = "../main";</script>
+            <script>window.location = "../";</script>
             @else
             <br>
             <div class="container">
@@ -46,28 +46,32 @@
                 <div class="container text-center">
                     <div class="row row-cols-auto">
                         <div class="col">
-                            <div class="shadow-card noselect" style="width: 18rem;">
-                                <div class="shadow-card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="shadow-card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="./dashboard/roles" style="text-decoration: none;" >
+                                <div class="shadow-card noselect" style="width: 18rem;">
+                                    <div class="shadow-card-body">
+                                        <h5 class="card-title">Roles Management</h5>
+                                        <p class="shadow-card-text">Roles Management. Create, read, update, delete and assign roles.</p>
+                                    </div>
                                 </div>
-                            </div>
+                            </a>    
                         </div>
                         <div class="col">
                             <div class="shadow-card noselect" style="width: 18rem;">
                                 <div class="shadow-card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="shadow-card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    <h5 class="card-title">Permission Management</h5>
+                                    <p class="shadow-card-text">Permission Management. Create, read, update, delete and assign permission.</p>
                                 </div>
                             </div>
                         </div>
                         <div class="col">
-                            <div class="shadow-card noselect" style="width: 18rem;">
-                                <div class="shadow-card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="shadow-card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="./dashboard/users" style="text-decoration: none;">
+                                <div class="shadow-card noselect" style="width: 18rem;">
+                                    <div class="shadow-card-body">
+                                        <h5 class="card-title">User Management</h5>
+                                        <p class="shadow-card-text">User Management. Create, read, update and delete users.</p>
+                                    </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                         <div class="col">
                             <div class="shadow-card noselect" style="width: 18rem;">
