@@ -18,16 +18,16 @@
 <body class="antialiased txt-color-white bg-color-start overflow-hidden">
     <div class="background-blob"> </div>
     <div>
-        <section class="d-flex justify-content-center align-content-center">
+        <section class="d-flex justify-content-center align-content-center noselect">
             @if (isset(Auth::user()->username))
                 <script>
                     window.location = "./dashboard";
                 </script>
             @endif
 
-            <div class="login-box shadow-lg noselect mt-5">
-                <div class="d-flex justify-content-center">
-                    <img class="" src="./assets/ficus_brand.png" alt="brand logo"width="50%">
+            <div class="login-box shadow-lg mt-5">
+                <div class="d-flex justify-content-center noselect">
+                    <img class="" src="./assets/ficus_brand.png" alt="brand logo" width="50%" id="logo">
                 </div>
                 <div class="brand-text d-flex justify-content-center">
                     <h4>Sign in to <span class="fw-bold text-primary ">Ficus</span></h4>
