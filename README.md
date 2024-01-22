@@ -5,6 +5,13 @@
 
 Laravel Ficus is a web application project built to learn how to use Laravel and PHP, the main idea was to create a crud but with permissions and roles management using the laravel-permissions library.
 
+## Preview
+<p align="center"><img src="readme/login.png" width="800" alt="Laravel Ficus Login"></p>
+<p align="center"><img src="readme/tab1.png" width="800" alt="Laravel Ficus Example 1"></p>
+<p align="center"><img src="readme/tab2.png" width="800" alt="Laravel Ficus Example 2"></p>
+
+
+
 ## How to install
 
 - `git clone https://github.com/itsLithium/laravel-ficus.git`
