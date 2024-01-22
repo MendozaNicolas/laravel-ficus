@@ -17,53 +17,7 @@
 
             <hr>
             <div class="container">
-                <div class="flex d-flex align-content-start flex-wrap" style="gap: 25px;">
-                    <a href="./dashboard/roles" style="text-decoration: none;">
-                        <div class="shadow-card noselect" style="width: 18rem;">
-                            <div class="shadow-card-body">
-                                <h5 class="card-title">Roles Management</h5>
-                                <p class="shadow-card-text">Roles Management. Create, read, update, delete and assign
-                                    roles.</p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="./dashboard/roles" style="text-decoration: none;">
-                        <div class="shadow-card noselect" style="width: 18rem;">
-                            <div class="shadow-card-body">
-                                <h5 class="card-title">Roles Management</h5>
-                                <p class="shadow-card-text">Roles Management. Create, read, update, delete and assign
-                                    roles.</p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="./dashboard/roles" style="text-decoration: none;">
-                        <div class="shadow-card noselect" style="width: 18rem;">
-                            <div class="shadow-card-body">
-                                <h5 class="card-title">Roles Management</h5>
-                                <p class="shadow-card-text">Roles Management. Create, read, update, delete and assign
-                                    roles.</p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="./dashboard/roles" style="text-decoration: none;">
-                        <div class="shadow-card noselect" style="width: 18rem;">
-                            <div class="shadow-card-body">
-                                <h5 class="card-title">Roles Management</h5>
-                                <p class="shadow-card-text">Roles Management. Create, read, update, delete and assign
-                                    roles.</p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="./dashboard/roles" style="text-decoration: none;">
-                        <div class="shadow-card noselect" style="width: 18rem;">
-                            <div class="shadow-card-body">
-                                <h5 class="card-title">Roles Management</h5>
-                                <p class="shadow-card-text">Roles Management. Create, read, update, delete and assign
-                                    roles.</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+
             </div>
         </section>
     </div>
