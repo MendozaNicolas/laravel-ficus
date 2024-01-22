@@ -3,65 +3,73 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use DB;
+use Hash;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
 class UserController extends Controller
 {
-    function getusers(){
-        $users = DB::table('users')->get();
- 
-        return view('admin.users.index', ['users' => $users]);
+    function index()
+    {
+        $users = User::get();
+
+        return view('users', ['users' => $users]);
     }
 
-    function createuser(Request $request){
-        $request ->validate([
-            'name'=> 'required|min:6',
-            'username'=> 'required|min:6|max:6',
-            'password'=> 'required|min:4',
+    function create(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'username' => 'required',
+            'password' => 'required',
         ]);
 
         try {
-            User::factory()->create([
-                'name'=> $request -> name,
-                'username'=> $request -> username,
-                'password'=> bcrypt($request -> password),
-                'remember_token' => Str::random(20),
-            ]);
-            return back()->with('success','User created successfully');
-        } catch (\Throwable $th) {
-            return back()->with('error', $th->getMessage());
-        }
-        
-    }
-
-    function removeuser(Request $request){
-
-        try {
-            User::where('id', $request -> id)->delete();
-            return back()->with('success','User/s destroyed');
+            $user = new User();
+            $user->name = $request->name;
+            $user->username = $request->username;
+            $user->password = Hash::make($request->password);
+            $user->save();
+            return back()->with('success', 'User successfully added.');
         } catch (\Throwable $th) {
             return back()->with('error', $th->getMessage());
         }
     }
 
-    function updateuser(Request $request){
-        $request ->validate([
-            'name'=> 'nullable',
-            'username'=> 'nullable|min:6|max:6',
-            'password'=> 'nullable|min:3',
+    function delete(Request $request)
+    {
+        $id = $request->validate([
+            'id' => ['required', 'numeric'],
         ]);
+
         try {
-            $user = User::where('id', $request -> id)->first();
-            User::where('id', $request -> id)->update([
-                'name'=> ($request -> name != null) ? $request -> name : $user->name, 
-                'username'=> ($request -> username != null ? $request -> username : $user->username),
-                'password'=> ($request -> password != null ) ? bcrypt($request -> password) : $user->password,
-            ]);
-            return back()->with('success','User updated');
-        }catch (\Throwable $th) {
+            User::destroy($id);
+            return back()->with('success', 'User successfully deleted.');
+        } catch (\Throwable $th) {
             return back()->with('error', $th->getMessage());
         }
+    }
+
+    function update(Request $request)
+    {
+        $request->validate([
+            'id' => 'required|numeric',
+            'name' => 'required',
+            'username' => 'required',
+            'password' => 'required',
+        ]);
+
+        try {
+            $user = User::findOrFail($request->id);
+            $user->name = $request->name;
+            $user->username = $request->username;
+            $user->password = $request->password;
+            $user->save();
+            return back()->with('success', 'User successfully updated.');
+        } catch (\Throwable $th) {
+
+            return back()->with('error', $th->getMessage());
+        }
+
     }
 }

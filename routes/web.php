@@ -1,6 +1,11 @@
 <?php
 
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\ItemController;
+use App\Http\Controllers\PermissionController;
+use App\Http\Controllers\SettingController;
 use Illuminate\Support\Facades\Route;
 
 //use App\Http\Controllers\LoginController;
@@ -17,19 +22,52 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/', 'App\Http\Controllers\ViewController@gotomain');
-Route::get('/main', 'App\Http\Controllers\AuthController@index');
-Route::post('/main/checklogin', 'App\Http\Controllers\AuthController@checklogin');
-Route::get('/main/dashboard', 'App\Http\Controllers\AuthController@successlogin');
-Route::get('/main/logout', 'App\Http\Controllers\AuthController@logout');
+Route::middleware('auth')->get('/dashboard', function () {
+    return view('dashboard');
+});
 
+Route::controller(AuthController::class)->group(function () {
+    Route::get('/', function () {
+        return redirect('login');
+    });
+    Route::get('/login', function () {
+        return view('auth.login');
+    })->name('login');
+    Route::post('/login/authenticate', 'authenticate');
+    Route::get('/logout', 'logout');
+});
 
-Route::get('/main/dashboard/users', 'App\Http\Controllers\UserController@getusers');
-Route::post('/main/dashboard/createuser', 'App\Http\Controllers\UserController@createuser');
-Route::post('/main/dashboard/removeuser', 'App\Http\Controllers\UserController@removeuser');
-Route::post('/main/dashboard/updateuser', 'App\Http\Controllers\UserController@updateuser');
+Route::middleware('auth')->controller(ItemController::class)->group(function () {
+    Route::get('/items', 'index');
+    Route::post('/items/create', 'create');
+    Route::post('/items/update', 'update');
+    Route::post('/items/delete', 'delete');
+});
 
+Route::middleware('auth')->controller(UserController::class)->group(function () {
+    Route::get('/users', 'index');
+    Route::post('/users/create', 'create');
+    Route::post('/users/update', 'update');
+    Route::post('/users/delete', 'delete');
+});
 
+Route::middleware('auth')->controller(RoleController::class)->group(function () {
+    Route::get('/roles', 'index');
+    Route::post('/roles/create', 'create');
+    Route::post('/roles/update', 'update');
+    Route::post('/roles/delete', 'delete');
+});
 
-Route::get('/main/dashboard/roles', 'App\Http\Controllers\RoleController@getroles');
+Route::middleware('auth')->controller(PermissionController::class)->group(function () {
+    Route::get('/permissions', 'index');
+    Route::post('/permissions/create', 'create');
+    Route::post('/permissions/update', 'update');
+    Route::post('/permissions/delete', 'delete');
+});
 
+Route::middleware('auth')->controller(SettingController::class)->group(function () {
+    Route::get('/settings', 'index');
+    Route::post('/settings/create', 'create');
+    Route::post('/settings/update', 'update');
+    Route::post('/settings/delete', 'delete');
+});

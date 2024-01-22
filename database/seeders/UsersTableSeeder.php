@@ -14,17 +14,23 @@ class UsersTableSeeder extends Seeder
      */
     public function run(): void
     {
-        \App\Models\User::factory()->create([
-            "name"=> "Gustavo Cerati",
-            'username' => 'guscer',
-            'password'=> Hash::make('root'),
-            'remember_token'=> Str::random(20),
-        ])->assignRole('User');
         // \App\Models\User::factory()->create([
-        //     "name"=> "Nicolas Mendoza",
+        //     "name" => "Nicolas Mendoza",
         //     'username' => 'nicmen',
-        //     'password'=> Hash::make('root'),
-        //     'remember_token'=> Str::random(20),
+        //     'password' => Hash::make('root'),
+        //     'remember_token' => Str::random(20),
         // ])->assignRole('Admin');
+
+        $firstName = fake()->firstName();
+        $lastName = fake()->lastName();
+        $name = $firstName . ' ' . $lastName;
+        $username = strtolower(substr($firstName, 1, 3)) . strtolower(substr($lastName, 1, 3));
+
+        \App\Models\User::factory()->create([
+            "name" => $name,
+            'username' => $username,
+            'password' => Hash::make('root'),
+            'remember_token' => Str::random(20),
+        ])->assignRole('User');
     }
 }

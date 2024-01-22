@@ -23,7 +23,7 @@ class UserFactory extends Factory
         return [
             'name' => fake()->name(),
             'username' => fake()->name(),
-            'password' => static::$password ??= Hash::make('root'),
+            'password' => static::$password,
             'remember_token' => Str::random(30),
         ];
     }

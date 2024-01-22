@@ -5,14 +5,15 @@ namespace App\Http\Controllers;
 use DB;
 use Illuminate\Http\Request;
 
-class RoleController extends Controller
+class PermissionController extends Controller
 {
     function index()
     {
-        $roles = DB::table('roles')->get();
+        $permissions = DB::table('permissions')->get();
 
-        return view('roles', ['roles' => $roles]);
+        return view('permissions', ['permissions' => $permissions]);
     }
+
 
 
     function create(Request $request)
@@ -23,11 +24,11 @@ class RoleController extends Controller
         ]);
 
         try {
-            DB::table('roles')->insert([
+            DB::table('permissions')->insert([
                 'name' => $request->name,
                 'guard_name' => $request->guard_name,
             ]);
-            return back()->with('success', 'Role successfully added.');
+            return back()->with('success', 'Permission successfully added.');
         } catch (\Throwable $th) {
             return back()->with('error', $th->getMessage());
         }
@@ -42,14 +43,14 @@ class RoleController extends Controller
         ]);
 
         try {
-            DB::table('roles')
+            DB::table('permissions')
                 ->where('id', $request->id)
                 ->update([
                     'name' => $request->name,
                     'guard_name' => $request->guard_name,
                 ]);
 
-            return back()->with('success', 'Role successfully updated.');
+            return back()->with('success', 'Permission successfully updated.');
         } catch (\Throwable $th) {
 
             return back()->with('error', $th->getMessage());
@@ -64,12 +65,13 @@ class RoleController extends Controller
         ]);
 
         try {
-            DB::table('roles')
+            DB::table('permissions')
                 ->where('id', $id)
                 ->delete();
-            return back()->with('success', 'Role successfully deleted.');
+            return back()->with('success', 'Permission successfully deleted.');
         } catch (\Throwable $th) {
             return back()->with('error', $th->getMessage());
         }
     }
+
 }

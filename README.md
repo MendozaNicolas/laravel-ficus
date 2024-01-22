@@ -15,7 +15,6 @@ Laravel Ficus is a web application project built to learn how to use Laravel and
 - `php artisan key:generate`
 - `php artisan migrate`
 - `php artisan db:seed`
-- `php artisan passport:install`
 - `npm install`
 - `npm run dev`
 - `php artisan serve`
