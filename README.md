@@ -14,7 +14,7 @@ Laravel Ficus is a web application project built to learn how to use Laravel and
 
 ## How to install
 
-- `git clone https://github.com/itsLithium/laravel-ficus.git`
+- `git clone https://github.com/MendozaNicolas/laravel-ficus.git`
 - `cd laravel-ficus/`
 - `composer install`
 - `cp .env.example .env`
